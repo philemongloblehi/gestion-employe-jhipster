@@ -1,0 +1,42 @@
+{
+    "name": "Emploie",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minSalaire",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "maxSalaire",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "employe",
+            "otherEntityName": "employe",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "emploie",
+            "relationshipName": "tache",
+            "otherEntityName": "tache",
+            "otherEntityField": "titre",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181031160621",
+    "entityTableName": "emploie",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employe">
+            <h2><span jhiTranslate="gestionEmployeAkilApp.employe.detail.title">Employe</span> {{employe.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.nom" [ngbTooltip]="'gestionEmployeAkilApp.employe.help.nom' | translate">Nom</span></dt>
+                <dd>
+                    <span>{{employe.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{employe.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.email">Email</span></dt>
+                <dd>
+                    <span>{{employe.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.contact">Contact</span></dt>
+                <dd>
+                    <span>{{employe.contact}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{employe.dateCreation}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.salaire">Salaire</span></dt>
+                <dd>
+                    <span>{{employe.salaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.commission">Commission</span></dt>
+                <dd>
+                    <span>{{employe.commission}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.departement">Departement</span></dt>
+                <dd>
+                    <div *ngIf="employe.departement">
+                        <a [routerLink]="['/departement', employe.departement?.id, 'view']">{{employe.departement?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.employe.manager">Manager</span></dt>
+                <dd>
+                    <div *ngIf="employe.manager">
+                        <a [routerLink]="['/employe', employe.manager?.id, 'view']">{{employe.manager?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employe', employe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

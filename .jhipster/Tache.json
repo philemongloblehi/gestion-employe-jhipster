@@ -1,0 +1,32 @@
+{
+    "name": "Tache",
+    "fields": [
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "emploie",
+            "otherEntityName": "emploie",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tache"
+        }
+    ],
+    "changelogDate": "20181031160619",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "tache",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="localisation">
+            <h2><span jhiTranslate="gestionEmployeAkilApp.localisation.detail.title">Localisation</span> {{localisation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionEmployeAkilApp.localisation.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{localisation.adresse}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.localisation.codePostal">Code Postal</span></dt>
+                <dd>
+                    <span>{{localisation.codePostal}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.localisation.ville">Ville</span></dt>
+                <dd>
+                    <span>{{localisation.ville}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.localisation.province">Province</span></dt>
+                <dd>
+                    <span>{{localisation.province}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.localisation.pays">Pays</span></dt>
+                <dd>
+                    <div *ngIf="localisation.pays">
+                        <a [routerLink]="['/pays', localisation.pays?.id, 'view']">{{localisation.pays?.paysLibelle}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/localisation', localisation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emploieHistory">
+            <h2><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.detail.title">Emploie History</span> {{emploieHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{emploieHistory.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{emploieHistory.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.langue">Langue</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gestionEmployeAkilApp.Langue.' + emploieHistory.langue}}">{{emploieHistory.langue}}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.emploie">Emploie</span></dt>
+                <dd>
+                    <div *ngIf="emploieHistory.emploie">
+                        <a [routerLink]="['/emploie', emploieHistory.emploie?.id, 'view']">{{emploieHistory.emploie?.libelle}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.departement">Departement</span></dt>
+                <dd>
+                    <div *ngIf="emploieHistory.departement">
+                        <a [routerLink]="['/departement', emploieHistory.departement?.id, 'view']">{{emploieHistory.departement?.departementLibelle}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionEmployeAkilApp.emploieHistory.employe">Employe</span></dt>
+                <dd>
+                    <div *ngIf="emploieHistory.employe">
+                        <a [routerLink]="['/employe', emploieHistory.employe?.id, 'view']">{{emploieHistory.employe?.nom}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/emploie-history', emploieHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

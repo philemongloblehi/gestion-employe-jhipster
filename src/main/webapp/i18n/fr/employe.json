@@ -1,0 +1,35 @@
+
+{
+    "gestionEmployeAkilApp": {
+        "employe" : {
+            "home": {
+                "title": "Employes",
+                "createLabel": "Créer un nouveau Employe",
+                "createOrEditLabel": "Créer ou éditer un Employe",
+                "search": "Recherche pour Employe"
+            },
+            "created": "Un nouveau Employe a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Employe avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Employe avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Employe {{ id }} ?"
+            },
+            "detail": {
+                "title": "Employe"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "email": "Email",
+            "contact": "Contact",
+            "dateCreation": "Date Creation",
+            "salaire": "Salaire",
+            "commission": "Commission",
+            "departement": "Departement",
+            "emploie": "Emploie",
+            "manager": "Manager",
+            "help": {
+                "nom": "The firstname attribute."
+            }
+        }
+    }
+}

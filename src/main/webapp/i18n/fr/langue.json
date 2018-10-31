@@ -1,0 +1,10 @@
+{
+    "gestionEmployeAkilApp": {
+        "Langue" : {
+            "null": "",
+            "FRANCAIS": "FRANCAIS",
+            "ANGLAIS": "ANGLAIS",
+            "ESPAGNOL": "ESPAGNOL"
+        }
+    }
+}

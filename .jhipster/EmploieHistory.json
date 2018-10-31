@@ -1,0 +1,53 @@
+{
+    "name": "EmploieHistory",
+    "fields": [
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "langue",
+            "fieldType": "Langue",
+            "fieldValues": "FRANCAIS,ANGLAIS,ESPAGNOL"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "emploie",
+            "otherEntityName": "emploie",
+            "otherEntityField": "libelle",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "emploieHistory"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "departement",
+            "otherEntityName": "departement",
+            "otherEntityField": "departementLibelle",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "emploieHistory"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "employe",
+            "otherEntityName": "employe",
+            "otherEntityField": "nom",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "emploieHistory"
+        }
+    ],
+    "changelogDate": "20181031160622",
+    "entityTableName": "emploie_history",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

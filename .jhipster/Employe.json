@@ -1,0 +1,64 @@
+{
+    "name": "Employe",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "salaire",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "commission",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "departement",
+            "otherEntityName": "departement",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "emploie",
+            "otherEntityName": "emploie",
+            "otherEntityRelationshipName": "employe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "manager",
+            "otherEntityName": "employe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181031160620",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "employe",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
