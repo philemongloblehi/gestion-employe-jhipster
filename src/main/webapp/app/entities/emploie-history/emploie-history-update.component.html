@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-emploie-history-heading" jhiTranslate="gestionEmployeAkilApp.emploieHistory.home.createOrEditLabel">Create or edit a Emploie History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!emploieHistory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="emploieHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.emploieHistory.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebut" type="datetime-local" class="form-control" name="dateDebut" [(ngModel)]="dateDebut"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.emploieHistory.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="d-flex">
+                        <input id="field_dateFin" type="datetime-local" class="form-control" name="dateFin" [(ngModel)]="dateFin"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.emploieHistory.langue" for="field_langue">Langue</label>
+                    <select class="form-control" name="langue" [(ngModel)]="emploieHistory.langue" id="field_langue" >
+                        <option value="FRANCAIS">{{'gestionEmployeAkilApp.Langue.FRANCAIS' | translate}}</option>
+                        <option value="ANGLAIS">{{'gestionEmployeAkilApp.Langue.ANGLAIS' | translate}}</option>
+                        <option value="ESPAGNOL">{{'gestionEmployeAkilApp.Langue.ESPAGNOL' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.emploieHistory.emploie" for="field_emploie">Emploie</label>
+                    <select class="form-control" id="field_emploie" name="emploie" [(ngModel)]="emploieHistory.emploie">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emploieOption.id === emploieHistory.emploie?.id ? emploieHistory.emploie : emploieOption" *ngFor="let emploieOption of emploies; trackBy: trackEmploieById">{{emploieOption.libelle}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.emploieHistory.departement" for="field_departement">Departement</label>
+                    <select class="form-control" id="field_departement" name="departement" [(ngModel)]="emploieHistory.departement">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="departementOption.id === emploieHistory.departement?.id ? emploieHistory.departement : departementOption" *ngFor="let departementOption of departements; trackBy: trackDepartementById">{{departementOption.departementLibelle}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.emploieHistory.employe" for="field_employe">Employe</label>
+                    <select class="form-control" id="field_employe" name="employe" [(ngModel)]="emploieHistory.employe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeOption.id === emploieHistory.employe?.id ? emploieHistory.employe : employeOption" *ngFor="let employeOption of employes; trackBy: trackEmployeById">{{employeOption.nom}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+
+{
+    "gestionEmployeAkilApp": {
+        "emploieHistory" : {
+            "home": {
+                "title": "EmploieHistories",
+                "createLabel": "Créer un nouveau Emploie History",
+                "createOrEditLabel": "Créer ou éditer un Emploie History",
+                "search": "Recherche pour Emploie History"
+            },
+            "created": "Un nouveau Emploie History a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Emploie History avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Emploie History avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Emploie History {{ id }} ?"
+            },
+            "detail": {
+                "title": "Emploie History"
+            },
+            "dateDebut": "Date Debut",
+            "dateFin": "Date Fin",
+            "langue": "Langue",
+            "emploie": "Emploie",
+            "departement": "Departement",
+            "employe": "Employe"
+        }
+    }
+}

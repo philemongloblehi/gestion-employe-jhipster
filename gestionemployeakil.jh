@@ -1,0 +1,114 @@
+entity Region {
+	regionLibelle String
+}
+
+entity Pays {
+	paysLibelle String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Localisation {
+	adresse String,
+	codePostal String,
+	ville String,
+	province String
+}
+
+entity Departement {
+	departementLibelle String required
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Tache {
+	titre String,
+	description String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Employe {
+	/**
+	* The firstname attribute.
+	*/
+	nom String,
+	prenom String,
+	email String,
+	contact String,
+	dateCreation Instant,
+	salaire Long,
+	commission Long
+}
+
+entity Emploie {
+	libelle String,
+	minSalaire Long,
+	maxSalaire Long
+}
+
+entity EmploieHistory {
+	dateDebut Instant,
+	dateFin Instant,
+	langue Langue
+}
+
+enum Langue {
+    FRANCAIS, ANGLAIS, ESPAGNOL
+}
+
+relationship OneToOne {
+	Pays{region(regionLibelle)} to Region
+}
+
+relationship OneToOne {
+	Localisation{pays(paysLibelle)} to Pays
+}
+
+relationship OneToOne {
+	Departement{localisation(adresse)} to Localisation
+}
+
+relationship ManyToMany {
+	Emploie{tache(titre)} to Tache{emploie(libelle)}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Employe{emploie(libelle)} to Emploie,
+	/**
+	* A relationship
+	*/
+	Departement{employe(nom)} to
+	/**
+	* Another side of the same relationship
+	*/
+	Employe
+}
+
+relationship ManyToOne {
+	Employe{manager} to Employe
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	EmploieHistory{emploie(libelle)} to Emploie,
+	EmploieHistory{departement(departementLibelle)} to Departement,
+	EmploieHistory{employe(nom)} to Employe
+}
+
+// Set pagination options
+paginate EmploieHistory, Employe with infinite-scroll
+paginate Emploie with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employe, Emploie
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

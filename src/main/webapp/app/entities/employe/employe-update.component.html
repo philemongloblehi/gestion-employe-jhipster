@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-employe-heading" jhiTranslate="gestionEmployeAkilApp.employe.home.createOrEditLabel">Create or edit a Employe</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!employe.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="employe.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.nom" for="field_nom" [ngbTooltip]="'gestionEmployeAkilApp.employe.help.nom' | translate">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="employe.nom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                        [(ngModel)]="employe.prenom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="employe.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.contact" for="field_contact">Contact</label>
+                    <input type="text" class="form-control" name="contact" id="field_contact"
+                        [(ngModel)]="employe.contact" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.dateCreation" for="field_dateCreation">Date Creation</label>
+                    <div class="d-flex">
+                        <input id="field_dateCreation" type="datetime-local" class="form-control" name="dateCreation" [(ngModel)]="dateCreation"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.salaire" for="field_salaire">Salaire</label>
+                    <input type="number" class="form-control" name="salaire" id="field_salaire"
+                        [(ngModel)]="employe.salaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.commission" for="field_commission">Commission</label>
+                    <input type="number" class="form-control" name="commission" id="field_commission"
+                        [(ngModel)]="employe.commission" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.departement" for="field_departement">Departement</label>
+                    <select class="form-control" id="field_departement" name="departement" [(ngModel)]="employe.departement" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="departementOption.id === employe.departement?.id ? employe.departement : departementOption" *ngFor="let departementOption of departements; trackBy: trackDepartementById">{{departementOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionEmployeAkilApp.employe.manager" for="field_manager">Manager</label>
+                    <select class="form-control" id="field_manager" name="manager" [(ngModel)]="employe.manager" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeOption.id === employe.manager?.id ? employe.manager : employeOption" *ngFor="let employeOption of employes; trackBy: trackEmployeById">{{employeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

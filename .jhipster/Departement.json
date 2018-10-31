@@ -1,0 +1,38 @@
+{
+    "name": "Departement",
+    "fields": [
+        {
+            "fieldName": "departementLibelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "localisation",
+            "otherEntityName": "localisation",
+            "otherEntityField": "adresse",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "departement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "javadoc": "A relationship",
+            "relationshipName": "employe",
+            "otherEntityName": "employe",
+            "otherEntityRelationshipName": "departement"
+        }
+    ],
+    "changelogDate": "20181031160618",
+    "entityTableName": "departement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,27 @@
+
+{
+    "gestionEmployeAkilApp": {
+        "emploie" : {
+            "home": {
+                "title": "Emploies",
+                "createLabel": "Créer un nouveau Emploie",
+                "createOrEditLabel": "Créer ou éditer un Emploie",
+                "search": "Recherche pour Emploie"
+            },
+            "created": "Un nouveau Emploie a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Emploie avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Emploie avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Emploie {{ id }} ?"
+            },
+            "detail": {
+                "title": "Emploie"
+            },
+            "libelle": "Libelle",
+            "minSalaire": "Min Salaire",
+            "maxSalaire": "Max Salaire",
+            "employe": "Employe",
+            "tache": "Tache"
+        }
+    }
+}

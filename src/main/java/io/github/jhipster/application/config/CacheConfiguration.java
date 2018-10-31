@@ -41,6 +41,18 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Region.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Pays.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Localisation.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Departement.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Departement.class.getName() + ".employes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Tache.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Tache.class.getName() + ".emploies", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Employe.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Employe.class.getName() + ".emploies", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Emploie.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Emploie.class.getName() + ".taches", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.EmploieHistory.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
